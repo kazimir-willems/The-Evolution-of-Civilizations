@@ -11,6 +11,8 @@ public class SharedPrefManager {
     private static final String TAG_BOOKMARK_SLIDE = "bookmark_slide";
     private static final String TAG_READING = "reading";
     private static final String TAG_FONT_SIZE = "fontsize";
+    private static final String TAG_CONTENT_ID = "content_id";
+    private static final String TAG_TITLE = "title";
 
     private static SharedPrefManager mInstance;
     private static Context mCtx;
@@ -26,17 +28,17 @@ public class SharedPrefManager {
         return mInstance;
     }
 
-    public boolean saveLastChapter(int chapter){
+    public boolean saveContentID(int id){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(TAG_LAST_CHAPTER, chapter);
+        editor.putInt(TAG_CONTENT_ID, id);
         editor.apply();
         return true;
     }
 
-    public int getLastChapter(){
+    public int getContentID(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return  sharedPreferences.getInt(TAG_LAST_CHAPTER, 0);
+        return  sharedPreferences.getInt(TAG_CONTENT_ID, 0);
     }
 
     public boolean saveLastSlide(int slide){
@@ -52,17 +54,17 @@ public class SharedPrefManager {
         return  sharedPreferences.getInt(TAG_LAST_SLIDE, 0);
     }
 
-    public boolean saveBookmarkChapter(int chapter){
+    public boolean saveTitle(String title){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(TAG_BOOKMARK_CHAPTER, chapter);
+        editor.putString(TAG_TITLE, title);
         editor.apply();
         return true;
     }
 
-    public int getBookmarkChapter(){
+    public String getTitle(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return  sharedPreferences.getInt(TAG_BOOKMARK_CHAPTER, -1);
+        return  sharedPreferences.getString(TAG_TITLE, "");
     }
 
     public boolean saveBookmarkSlide(int slide){

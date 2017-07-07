@@ -20,6 +20,8 @@ public class SectionActivity extends AppCompatActivity {
     private int chapterNo;
     private int sectionNo;
 
+    private ArrayAdapter<String> adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,7 @@ public class SectionActivity extends AppCompatActivity {
 
         int resourceId = this.getResources().getIdentifier(titleKey, "array", this.getPackageName());
         if(resourceId != 0) {
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(SectionActivity.this,
+            adapter = new ArrayAdapter<String>(SectionActivity.this,
                     R.layout.content_item, android.R.id.text1, getResources().getStringArray(resourceId));
 
             titleList.setAdapter(adapter);
@@ -53,6 +55,8 @@ public class SectionActivity extends AppCompatActivity {
                     intent.putExtra("section_no", sectionNo);
                     intent.putExtra("title_no", i + 1);
                     intent.putExtra("content_id", resourceId);
+                    intent.putExtra("title", adapter.getItem(i));
+                    intent.putExtra("from_reading", true);
 
                     startActivity(intent);
                 }

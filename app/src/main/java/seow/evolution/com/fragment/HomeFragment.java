@@ -23,13 +23,14 @@ public class HomeFragment extends Fragment {
     @Bind(R.id.chapter_list)
     ListView chapterList;
 
+    private ArrayAdapter<String> adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(HomeFragment.this, v);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+        adapter = new ArrayAdapter<String>(getActivity(),
                 R.layout.content_item, android.R.id.text1, getResources().getStringArray(R.array.chapter_titles));
         chapterList.setAdapter(adapter);
 
@@ -59,6 +60,8 @@ public class HomeFragment extends Fragment {
                             intent.putExtra("content_id", resourceId);
                             intent.putExtra("section_no", 0);
                             intent.putExtra("title_no", 0);
+                            intent.putExtra("title", adapter.getItem(i));
+                            intent.putExtra("from_reading", true);
 
                             startActivity(intent);
                         }
@@ -73,6 +76,8 @@ public class HomeFragment extends Fragment {
                         intent.putExtra("section_no", 0);
                         intent.putExtra("title_no", 0);
                         intent.putExtra("content_id", resourceId);
+                        intent.putExtra("title", adapter.getItem(i));
+                        intent.putExtra("from_reading", true);
 
                         startActivity(intent);
                     }

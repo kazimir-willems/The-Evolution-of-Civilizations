@@ -13,15 +13,19 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.vision.text.Text;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import seow.evolution.com.R;
+import seow.evolution.com.db.FavoriteDB;
 import seow.evolution.com.fragment.ContentFragment;
+import seow.evolution.com.model.FavoriteItem;
 import seow.evolution.com.util.SharedPrefManager;
 
 public class ContentActivity extends AppCompatActivity {
@@ -39,8 +43,8 @@ public class ContentActivity extends AppCompatActivity {
     SeekBar fontSeek;
     @Bind(R.id.tv_slide_no)
     TextView tvSlideNo;
-    @Bind(R.id.activity_content)
-    RelativeLayout contentLayout;
+    @Bind(R.id.tv_title)
+    TextView tvTitle;
     @Bind(R.id.admob_view)
     AdView admobView;
 
@@ -66,6 +70,8 @@ public class ContentActivity extends AppCompatActivity {
                 .build();
         admobView.loadAd(adRequest);
 
+        chapterTitle = getIntent().getStringExtra("title");
+        tvTitle.setText(chapterTitle);
         contentResourceID = getIntent().getIntExtra("content_id", 0);
         contents = getResources().getStringArray(contentResourceID);
 
@@ -89,6 +95,8 @@ public class ContentActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 SharedPrefManager.getInstance(ContentActivity.this).saveLastSlide(position);
+                SharedPrefManager.getInstance(ContentActivity.this).saveContentID(contentResourceID);
+                SharedPrefManager.getInstance(ContentActivity.this).saveTitle(chapterTitle);
 
                 currentPage = position;
                 String curSlide = String.format(getResources().getString(R.string.slide_no_format), currentPage + 1, totalPage);
@@ -119,11 +127,19 @@ public class ContentActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
-        SharedPrefManager.getInstance(this).saveLastChapter(chapterNo);
         SharedPrefManager.getInstance(this).saveReading(true);
 
         String curSlide = String.format(getResources().getString(R.string.slide_no_format), 1, totalPage);
         tvSlideNo.setText(curSlide);
+
+        boolean fromReading = getIntent().getBooleanExtra("from_reading", true);
+        if(!fromReading) {
+            currentPage = getIntent().getIntExtra("slide_no", 0);
+            viewPager.setCurrentItem(currentPage);
+
+            curSlide = String.format(getResources().getString(R.string.slide_no_format), currentPage + 1, totalPage);
+            tvSlideNo.setText(curSlide);
+        }
     }
 
     @OnClick(R.id.tv_show_spinner)
@@ -136,8 +152,18 @@ public class ContentActivity extends AppCompatActivity {
 
     @OnClick(R.id.tv_bookmark)
     void onClickTvBookmark() {
-        SharedPrefManager.getInstance(this).saveBookmarkChapter(chapterNo);
-        SharedPrefManager.getInstance(this).saveBookmarkSlide(currentPage);
+        FavoriteItem item = new FavoriteItem();
+        item.setSlideNo(currentPage);
+        item.setContentID(contentResourceID);
+        item.setTitle(chapterTitle);
+
+        FavoriteDB db = new FavoriteDB(this);
+        long ret = db.addFavorite(item);
+        if(ret == -1) {
+            Toast.makeText(this, R.string.already_added, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, R.string.successfully_added, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @OnClick(R.id.btn_back)

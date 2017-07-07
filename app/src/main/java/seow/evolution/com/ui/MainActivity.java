@@ -2,6 +2,7 @@ package seow.evolution.com.ui;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
@@ -12,8 +13,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import seow.evolution.com.R;
+import seow.evolution.com.fragment.FavoriteFragment;
 import seow.evolution.com.fragment.HomeFragment;
 import seow.evolution.com.fragment.SettingsFragment;
+import seow.evolution.com.util.SharedPrefManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +40,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(SharedPrefManager.getInstance(this).getReading()) {
+            Intent intent = new Intent(this, ContentActivity.class);
+
+            intent.putExtra("title", SharedPrefManager.getInstance(this).getTitle());
+            intent.putExtra("slide_no", SharedPrefManager.getInstance(this).getLastSlide());
+            intent.putExtra("content_id", SharedPrefManager.getInstance(this).getContentID());
+            intent.putExtra("from_reading", false);
+
+            startActivity(intent);
+        }
 
         ButterKnife.bind(this);
     }
@@ -63,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
             tvHome.setTextColor(getResources().getColor(R.color.colorBlack));
             ivSetting.setBackground(getResources().getDrawable(R.drawable.ic_setting));
             tvSetting.setTextColor(getResources().getColor(R.color.colorBlack));
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.content_layout, FavoriteFragment.newInstance())
+                    .commit();
         }
     }
 
