@@ -2,6 +2,8 @@ package seow.evolution.com.ui;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,14 +11,17 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.vision.text.Text;
 
 import butterknife.Bind;
@@ -48,6 +53,10 @@ public class ContentActivity extends AppCompatActivity {
     @Bind(R.id.admob_view)
     AdView admobView;
 
+    private InterstitialAd adView;  // The ad
+    private Handler mHandler;       // Handler to display the ad on the UI thread
+    private Runnable displayAd;     // Code to execute to perform this operation
+
     private ContentFragment[] fragments;
     private int slideCnt;
 
@@ -63,6 +72,35 @@ public class ContentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_content);
 
         ButterKnife.bind(this);
+
+        if(!SharedPrefManager.getInstance(this).getGoogleAds()) {
+            admobView.setVisibility(View.GONE);
+        } else {
+            admobView.setVisibility(View.VISIBLE);
+        }
+
+        adView = new InterstitialAd(ContentActivity.this);
+        adView.setAdUnitId("ca-app-pub-1588855366653236/4173011907");
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                loadAd();
+            }
+        });
+        mHandler = new Handler(Looper.getMainLooper());
+        displayAd = new Runnable() {
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        if (adView.isLoaded()) {
+                            adView.show();
+                        }
+                    }
+                });
+            }
+        };
+        loadAd();
 
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
@@ -101,6 +139,11 @@ public class ContentActivity extends AppCompatActivity {
                 currentPage = position;
                 String curSlide = String.format(getResources().getString(R.string.slide_no_format), currentPage + 1, totalPage);
                 tvSlideNo.setText(curSlide);
+
+                if(currentPage % 5 == 4) {
+                    if(SharedPrefManager.getInstance(ContentActivity.this).getGoogleInterestial())
+                        mHandler.post(displayAd);
+                }
             }
 
             @Override
@@ -140,6 +183,8 @@ public class ContentActivity extends AppCompatActivity {
             curSlide = String.format(getResources().getString(R.string.slide_no_format), currentPage + 1, totalPage);
             tvSlideNo.setText(curSlide);
         }
+
+
     }
 
     @OnClick(R.id.tv_show_spinner)
@@ -223,5 +268,14 @@ public class ContentActivity extends AppCompatActivity {
         }
 
         super.onDestroy();
+    }
+
+    void loadAd() {
+        AdRequest adRequest = new AdRequest.Builder()
+                //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        // Load the adView object witht he request
+        adView.loadAd(adRequest);
     }
 }

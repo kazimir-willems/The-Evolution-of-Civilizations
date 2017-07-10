@@ -4,14 +4,16 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="seow.evolution.com.ui.MainActivity">
+    tools:context="seow.evolution.com.ui.MainActivity"
+    android:background="@color/colorDarkGreen">
 
     <LinearLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorDarkGreen">
 
         <LinearLayout
             android:id="@+id/favorite_layout"
@@ -34,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/favorite"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/colorBlack"/>
+                android:textColor="@color/colorWhite"/>
 
         </LinearLayout>
 
@@ -59,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/home"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/colorSelectedGreen"/>
+                android:textColor="@color/colorPrimary"/>
 
         </LinearLayout>
 
@@ -84,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/setting"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/colorBlack"/>
+                android:textColor="@color/colorWhite"/>
 
         </LinearLayout>
 
@@ -97,7 +99,6 @@
         android:layout_above="@id/tab_layout">
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorWhite"/>
+            android:layout_height="match_parent"/>
     </RelativeLayout>
 </RelativeLayout>

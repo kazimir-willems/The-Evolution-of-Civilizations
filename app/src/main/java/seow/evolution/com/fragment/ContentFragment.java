@@ -1,5 +1,6 @@
 package seow.evolution.com.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.TypedValue;
@@ -13,7 +14,9 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import seow.evolution.com.R;
+import seow.evolution.com.customview.TouchImageView;
 import seow.evolution.com.ui.ChapterActivity;
+import seow.evolution.com.ui.FullScreenActivity;
 import seow.evolution.com.util.SharedPrefManager;
 
 public class ContentFragment extends Fragment {
@@ -48,8 +51,18 @@ public class ContentFragment extends Fragment {
             ivImage.setVisibility(View.VISIBLE);
             String key = strContent.substring(5);
 
-            int resourceId = getActivity().getResources().getIdentifier(key, "drawable", getActivity().getPackageName());
+            final int resourceId = getActivity().getResources().getIdentifier(key, "drawable", getActivity().getPackageName());
             ivImage.setBackground(getResources().getDrawable(resourceId));
+
+            ivImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), FullScreenActivity.class);
+                    intent.putExtra("resourceID", resourceId);
+
+                    startActivity(intent);
+                }
+            });
         }
 
         setFontSize(SharedPrefManager.getInstance(getActivity()).getFontSize() * 2 + 14);

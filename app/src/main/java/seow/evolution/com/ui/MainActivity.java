@@ -72,11 +72,11 @@ public class MainActivity extends AppCompatActivity {
         } else {
             selectedTab = 0;
             ivFavorite.setBackground(getResources().getDrawable(R.drawable.ic_favorite_pressed));
-            tvFavorite.setTextColor(getResources().getColor(R.color.colorSelectedGreen));
+            tvFavorite.setTextColor(getResources().getColor(R.color.colorPrimary));
             ivHome.setBackground(getResources().getDrawable(R.drawable.ic_home));
-            tvHome.setTextColor(getResources().getColor(R.color.colorBlack));
+            tvHome.setTextColor(getResources().getColor(R.color.colorWhite));
             ivSetting.setBackground(getResources().getDrawable(R.drawable.ic_setting));
-            tvSetting.setTextColor(getResources().getColor(R.color.colorBlack));
+            tvSetting.setTextColor(getResources().getColor(R.color.colorWhite));
 
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.content_layout, FavoriteFragment.newInstance())
@@ -91,11 +91,11 @@ public class MainActivity extends AppCompatActivity {
         } else {
             selectedTab = 1;
             ivFavorite.setBackground(getResources().getDrawable(R.drawable.ic_favorite));
-            tvFavorite.setTextColor(getResources().getColor(R.color.colorBlack));
+            tvFavorite.setTextColor(getResources().getColor(R.color.colorWhite));
             ivHome.setBackground(getResources().getDrawable(R.drawable.ic_home_pressed));
-            tvHome.setTextColor(getResources().getColor(R.color.colorSelectedGreen));
+            tvHome.setTextColor(getResources().getColor(R.color.colorPrimary));
             ivSetting.setBackground(getResources().getDrawable(R.drawable.ic_setting));
-            tvSetting.setTextColor(getResources().getColor(R.color.colorBlack));
+            tvSetting.setTextColor(getResources().getColor(R.color.colorWhite));
 
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.content_layout, HomeFragment.newInstance())
@@ -110,11 +110,11 @@ public class MainActivity extends AppCompatActivity {
         } else {
             selectedTab = 2;
             ivFavorite.setBackground(getResources().getDrawable(R.drawable.ic_favorite));
-            tvFavorite.setTextColor(getResources().getColor(R.color.colorBlack));
+            tvFavorite.setTextColor(getResources().getColor(R.color.colorWhite));
             ivHome.setBackground(getResources().getDrawable(R.drawable.ic_home));
-            tvHome.setTextColor(getResources().getColor(R.color.colorBlack));
+            tvHome.setTextColor(getResources().getColor(R.color.colorWhite));
             ivSetting.setBackground(getResources().getDrawable(R.drawable.ic_setting_pressed));
-            tvSetting.setTextColor(getResources().getColor(R.color.colorSelectedGreen));
+            tvSetting.setTextColor(getResources().getColor(R.color.colorPrimary));
 
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.content_layout, SettingsFragment.newInstance())

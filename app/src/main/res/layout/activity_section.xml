@@ -4,7 +4,7 @@
     android:id="@+id/activity_chapter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorSelectedGreen"
+    android:background="@color/colorDarkGreen"
     tools:context="seow.evolution.com.ui.ChapterActivity">
 
     <ListView

@@ -5,14 +5,14 @@ import android.content.SharedPreferences;
 
 public class SharedPrefManager {
     private static final String SHARED_PREF_NAME = "EvolutionPreference";
-    private static final String TAG_LAST_CHAPTER = "last_chapter";
     private static final String TAG_LAST_SLIDE = "last_slide";
-    private static final String TAG_BOOKMARK_CHAPTER = "bookmark_chapter";
     private static final String TAG_BOOKMARK_SLIDE = "bookmark_slide";
     private static final String TAG_READING = "reading";
     private static final String TAG_FONT_SIZE = "fontsize";
     private static final String TAG_CONTENT_ID = "content_id";
     private static final String TAG_TITLE = "title";
+    private static final String TAG_ADMOB_SWITCH = "admob_switch";
+    private static final String TAG_INTERESTIAL_SWITCH = "interestial_switch";
 
     private static SharedPrefManager mInstance;
     private static Context mCtx;
@@ -104,5 +104,31 @@ public class SharedPrefManager {
     public int getFontSize(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return  sharedPreferences.getInt(TAG_FONT_SIZE, 3);
+    }
+
+    public boolean saveGoogleAds(boolean value){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(TAG_ADMOB_SWITCH, value);
+        editor.apply();
+        return true;
+    }
+
+    public boolean getGoogleAds(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return  sharedPreferences.getBoolean(TAG_ADMOB_SWITCH, true);
+    }
+
+    public boolean saveGoogleInterestial(boolean value){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(TAG_INTERESTIAL_SWITCH, value);
+        editor.apply();
+        return true;
+    }
+
+    public boolean getGoogleInterestial(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return  sharedPreferences.getBoolean(TAG_INTERESTIAL_SWITCH, true);
     }
 }

@@ -1,5 +1,7 @@
 package seow.evolution.com.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -63,5 +65,31 @@ public class FavoriteFragment extends Fragment {
         FavoriteFragment f = new FavoriteFragment();
 
         return f;
+    }
+
+    public void removeFavoriteItem(final FavoriteItem item) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(R.string.app_name);
+        builder.setMessage(R.string.remove_favorite_item);
+        builder.setPositiveButton(R.string.btn_yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                FavoriteDB db = new FavoriteDB(getActivity());
+                db.removeItem(item.getId());
+
+                favoriteItems = db.fetchAllFavorites();
+                adapter.addItems(favoriteItems);
+                adapter.notifyDataSetChanged();
+            }
+        });
+        builder.setNegativeButton(R.string.btn_no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.setCancelable(false);
+        alertDialog.show();
     }
 }

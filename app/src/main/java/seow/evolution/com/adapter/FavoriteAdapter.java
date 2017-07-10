@@ -52,6 +52,15 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
                 parent.startActivity(intent);
             }
         });
+
+        holder.favoriteLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                parent.removeFavoriteItem(item);
+
+                return false;
+            }
+        });
     }
 
     public FavoriteItem getItem(int pos) {

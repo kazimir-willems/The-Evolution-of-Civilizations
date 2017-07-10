@@ -36,3 +36,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile files('libs/butterknife-7.0.1.jar')
 }
+
+apply plugin: 'com.google.gms.google-services'
