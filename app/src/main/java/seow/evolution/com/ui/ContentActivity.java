@@ -64,6 +64,7 @@ public class ContentActivity extends AppCompatActivity {
     private int currentPage = 0;
 
     private int contentResourceID = 0;
+    private String curSlide;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -113,6 +114,10 @@ public class ContentActivity extends AppCompatActivity {
         contentResourceID = getIntent().getIntExtra("content_id", 0);
         contents = getResources().getStringArray(contentResourceID);
 
+        SharedPrefManager.getInstance(ContentActivity.this).saveLastSlide(currentPage);
+        SharedPrefManager.getInstance(ContentActivity.this).saveContentID(contentResourceID);
+        SharedPrefManager.getInstance(ContentActivity.this).saveTitle(chapterTitle);
+
         slideCnt = contents.length;
         totalPage = slideCnt;
 
@@ -137,7 +142,7 @@ public class ContentActivity extends AppCompatActivity {
                 SharedPrefManager.getInstance(ContentActivity.this).saveTitle(chapterTitle);
 
                 currentPage = position;
-                String curSlide = String.format(getResources().getString(R.string.slide_no_format), currentPage + 1, totalPage);
+                curSlide = String.format(getResources().getString(R.string.slide_no_format), currentPage + 1, totalPage);
                 tvSlideNo.setText(curSlide);
 
                 if(currentPage % 5 == 4) {
@@ -172,7 +177,7 @@ public class ContentActivity extends AppCompatActivity {
 
         SharedPrefManager.getInstance(this).saveReading(true);
 
-        String curSlide = String.format(getResources().getString(R.string.slide_no_format), 1, totalPage);
+        curSlide = String.format(getResources().getString(R.string.slide_no_format), 1, totalPage);
         tvSlideNo.setText(curSlide);
 
         boolean fromReading = getIntent().getBooleanExtra("from_reading", true);
@@ -200,7 +205,7 @@ public class ContentActivity extends AppCompatActivity {
         FavoriteItem item = new FavoriteItem();
         item.setSlideNo(currentPage);
         item.setContentID(contentResourceID);
-        item.setTitle(chapterTitle);
+        item.setTitle(chapterTitle + "  " + curSlide);
 
         FavoriteDB db = new FavoriteDB(this);
         long ret = db.addFavorite(item);

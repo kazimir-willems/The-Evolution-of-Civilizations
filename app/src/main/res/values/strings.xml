@@ -14,8 +14,8 @@
     <string name="btn_yes">Yes</string>
     <string name="btn_no">No</string>
     <string name="about">About</string>
-    <string name="about_text">The content of this app, \"The Evolution of Civilisations: An Introduction to Historical Analysis\" is written by Carroll Quigley. Carroll Quigley (1910-1977) taught the History of Civilization at Georgetown School of Foreign Service for more than thirty years. A graduate of Harvard University he first taught history there and at Princeton. Professor Quigley was regarded as an expert on the comparative history of civilizations, twentieth century Europe and African Affairs. He served as a consultant to the Smithonian Institution and as a member of the editorial board of Current History. He was a fellow of the American Anthropological Association, a member of the International Society for the Comparative Study of Civilizations, and a life member (London) of the English-Speaking Union of the Commonwealth. He contributed numerous articles to scholarly publications and was also the Author of \"Tragedy and Hope: A History of the World in Our Time\".</string>
-    <string name="google_ads">Google Admob Banner</string>
+    <string name="about_text">&#160;&#160;The content of this app, \"The Evolution of Civilisations: An Introduction to Historical Analysis\" is written by Carroll Quigley. Carroll Quigley (1910-1977) taught the History of Civilization at Georgetown School of Foreign Service for more than thirty years. A graduate of Harvard University he first taught history there and at Princeton. Professor Quigley was regarded as an expert on the comparative history of civilizations, twentieth century Europe and African Affairs. He served as a consultant to the Smithonian Institution and as a member of the editorial board of Current History. He was a fellow of the American Anthropological Association, a member of the International Society for the Comparative Study of Civilizations, and a life member (London) of the English-Speaking Union of the Commonwealth. He contributed numerous articles to scholarly publications and was also the Author of \"Tragedy and Hope: A History of the World in Our Time\".</string>
+    <string name="google_ads">Google Admob &amp; Interstitial</string>
     <string name="google_interestial">Google Interestial</string>
 
     <array name="chapter_titles">
@@ -9996,10 +9996,12 @@
     </array>
 
     <array name="content_11">
-        <item>Text&#160;&#160;What is the point of all this? Looking back over our discussion, it seems to me that
+        <item>Text&#160;&#160;What is the point of all this? Looking back over our discussion, it
+            seems to me that
             at least six chief points readily emerge.
         </item>
-        <item>Text&#160;&#160;In the first place, I have sought to emphasize the difference between knowledge and
+        <item>Text&#160;&#160;In the first place, I have sought to emphasize the difference between
+            knowledge and
             understanding in the field of history. To know is not too demanding: it merely requires
             memory and time. But to understand is quite a different matter: it requires intellectual
             ability and training, a self-conscious awareness of what one is doing, experience in
@@ -10011,16 +10013,19 @@
             veterans or middle class. To obtain knowledge we must use such groups, but to obtain
             understanding we must use the only group that is comprehensible: the society.
         </item>
-        <item>Text&#160;&#160;There is nothing very original in this first point, since it is, among others,
+        <item>Text&#160;&#160;There is nothing very original in this first point, since it is, among
+            others,
             advocated by Toynbee in the first volume of his A Study of History, but it has not been
             accepted by historians, who, in practice, continue to deal with noncomprehensible units
             such as states or nations. Moreover, Toynbee never defined his terms, and constantly
             violated his own precepts in his own practice.
         </item>
-        <item>Text&#160;&#160;The second major point is the recognition that civilizations pass through a process of
+        <item>Text&#160;&#160;The second major point is the recognition that civilizations pass
+            through a process of
             rise and fall. This is, of course, one of the oldest clichés in any \"philosophy of
             history,\" and no claims to originality on that score could be made for this present
-            book. But I have sought to go beyond the mere recognition of \"rise and fall\" to seek to
+            book. But I have sought to go beyond the mere recognition of \"rise and fall\" to seek
+            to
             find the mechanism of the process. Here I do not feel entitled to make any claim to
             startling originality because the process I describe—the institutionalization of social
             instruments—is clearly what was at the back of the minds of a number of earlier writers
@@ -10040,7 +10045,8 @@
             factor that is independent but an explicit recognition that we are assuming the
             independence of one variable.
         </item>
-        <item>Text&#160;&#160;A third conclusion, derived from the second, is concerned with periodization in
+        <item>Text&#160;&#160;A third conclusion, derived from the second, is concerned with
+            periodization in
             history. It has been clear for a long time that the periodizations now used are
             unsatisfactory. The division of ancient history into a Greek period, a Hellenistic
             period, and a Roman period makes no sense at all, can be maintained only by making the
@@ -10057,13 +10063,15 @@
             relationship to the medieval period, a relationship that remains ambiguous because of
             the mistaken effort to treat the Middle Ages as a single period. As a consequence we
             find medieval history, to nonmedievalists, represented by a welter of contradictions
-            called \"renaissance of the twelfth century,\" \"Age of Authority\" (or Faith), \"Dark Ages,\"
+            called \"renaissance of the twelfth century,\" \"Age of Authority\" (or Faith), \"Dark
+            Ages,\"
             and other totally misleading verbal tags. My division of the millennium 400-1400 into
             the four stages of Mixture, Gestation, Expansion, and Conflict solves many of these
             difficulties, provides tools with which to analyze aberrations like the Carolingian
             revival, and, above all, provides a vocabulary for dealing with the problem.
         </item>
-        <item>Text&#160;&#160;On the whole, the division into seven stages is largely my own except that I have used
+        <item>Text&#160;&#160;On the whole, the division into seven stages is largely my own except
+            that I have used
             Toynbee\'s ideas, if not his nomenclature, with reference to the last four or five
             stages. The great advantage that my seven stages provide over Toynbee\'s recognition of
             the last five of them rests in my insistence that any division into stages must be based
@@ -10071,7 +10079,8 @@
             sufficient merely to describe and to devise name tags for stages based on such
             description. This is what Toynbee has done, and this is why Toynbee is so notably
             unsatisfactory in dealing with the earlier stages of any civilization\'s evolution.
-            Toynbee\'s process of \"Challenge and Response\" explains nothing, is based on a mistaken
+            Toynbee\'s process of \"Challenge and Response\" explains nothing, is based on a
+            mistaken
             Darwinian biological analogy, and provides no technique for analyzing a society or for
             communication with others about it. It is true that societies are challenged and either
             do or do not respond to these challenges. This is so true as to be quite unhelpful. The
@@ -10080,7 +10089,8 @@
             Moreover, Toynbee\'s failure, already sufficiently emphasized, to correlate his process
             with his division into stages is a major weakness.
         </item>
-        <item>Text&#160;&#160;Toynbee\'s failure to provide a satisfactory analysis of process explains his failure
+        <item>Text&#160;&#160;Toynbee\'s failure to provide a satisfactory analysis of process
+            explains his failure
             to understand, or to provide stages for, the first part of a civilization\'s existence.
             The whole process of mixture, gestation, and incipient expansion is of vital concern to
             us today when the buffer fringe between the Western and the Soviet blocs, from Morocco
@@ -10088,7 +10098,8 @@
             nothing to offer, either to the peoples of those areas who are struggling to establish
             viable societies or to us who are trying to understand what is happening there.
         </item>
-        <item>Text&#160;&#160;A fifth contribution I have tried to make is concerned with vocabulary. This
+        <item>Text&#160;&#160;A fifth contribution I have tried to make is concerned with
+            vocabulary. This
             contribution has two parts. On the one hand, I have tried to provide a vocabulary
             sufficiently well-defined to allow communication between students of these problems, yet
             sufficiently realistic to assist explanations of what is happening or did happen in any
@@ -10109,7 +10120,8 @@
             fact, it is possible today to attract favorable attention simply by pointing out the
             artificial nature of these older boundary lines.
         </item>
-        <item>Text&#160;&#160;All this leads to the sixth contribution offered by this book. It tries to provide
+        <item>Text&#160;&#160;All this leads to the sixth contribution offered by this book. It
+            tries to provide
             techniques for dealing with history or with social problems in general. For years I have
             told my students that I have been trying to train executives rather than clerks. The
             distinction between the two is parallel to the distinction previously made between
@@ -10123,7 +10135,8 @@
             it is not sufficient the candidate must be eliminated. But the vital thing is
             understanding. This requires possession of techniques that, fortunately, can be taught.
         </item>
-        <item>Text&#160;&#160;The historian who is on an executive level rather than on a clerical level because he
+        <item>Text&#160;&#160;The historian who is on an executive level rather than on a clerical
+            level because he
             can make decisions and understands the materials with which he deals must have
             techniques of analysis, of morphological understanding, of developmental processes, and
             of evolutionary changes. I have tried to suggest, in an introductory fashion, the kind
@@ -10134,7 +10147,8 @@
             terms. Failure to use such techniques leads to childish judgments on historical events
             just as, among practicing politicians, it leads to childish decisions in world problems.
         </item>
-        <item>Text&#160;&#160;An example of how such techniques may be used in history might be helpful. For years I
+        <item>Text&#160;&#160;An example of how such techniques may be used in history might be
+            helpful. For years I
             have been teaching students that historians come up against four kinds of problems.
             These are: (1) informational problems; (2) logical problems; (3) analytical problems;
             and (4) chronological problems. Techniques, capable of being taught, can be devised for
@@ -10146,7 +10160,8 @@
             self-awareness is the chief value to be derived from awareness of one\'s techniques,
             their adequacy, and their character.
         </item>
-        <item>Text&#160;&#160;The techniques I have discussed as instruments for dealing with the past have value
+        <item>Text&#160;&#160;The techniques I have discussed as instruments for dealing with the
+            past have value
             outside the study of history, for they are equally useful in dealing with the present or
             the future. I sometimes demonstrate this to my students by imagining that one of them is
             called upon to lead a United States government commission of inquiry to Brazil, a
@@ -10156,7 +10171,8 @@
             Brazil, and how their results, at the end, should be coordinated to provide an adequate
             picture of a functioning Brazil beset by actual problems.
         </item>
-        <item>Text&#160;&#160;The value of these techniques, since they seek understanding rather than knowledge, is
+        <item>Text&#160;&#160;The value of these techniques, since they seek understanding rather
+            than knowledge, is
             constantly high and has, if anything, increased in recent years. These years have seen,
             since Sputnik, a dramatic increase in the prestige of science and in the use of
             scientists in dealing with world problems. I should be the last person to regret this

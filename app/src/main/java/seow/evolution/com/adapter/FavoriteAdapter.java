@@ -39,6 +39,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.Favori
         final FavoriteItem item = items.get(position);
 
         holder.tvFavorite.setText(item.getTitle());
+        holder.tvFavorite.setSelected(true);
         holder.favoriteLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

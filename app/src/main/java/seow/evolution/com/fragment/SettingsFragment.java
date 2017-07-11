@@ -22,8 +22,6 @@ public class SettingsFragment extends Fragment {
 
     @Bind(R.id.switch_admob)
     Switch switchAdmob;
-    @Bind(R.id.switch_interestial)
-    Switch switchInterestial;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,19 +29,18 @@ public class SettingsFragment extends Fragment {
         ButterKnife.bind(SettingsFragment.this, v);
 
         switchAdmob.setChecked(SharedPrefManager.getInstance(getActivity()).getGoogleAds());
-        switchInterestial.setChecked(SharedPrefManager.getInstance(getActivity()).getGoogleInterestial());
 
         switchAdmob.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                SharedPrefManager.getInstance(getActivity()).saveGoogleAds(b);
-            }
-        });
 
-        switchInterestial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                SharedPrefManager.getInstance(getActivity()).saveGoogleInterestial(b);
+                /*if(!b) {
+                    //In-app Purchase
+
+                } else {*/
+                    SharedPrefManager.getInstance(getActivity()).saveGoogleAds(b);
+                    SharedPrefManager.getInstance(getActivity()).saveGoogleInterestial(b);
+//                }
             }
         });
 
