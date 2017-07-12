@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "337257128249",
+    "firebase_url": "https://eoc-app.firebaseio.com",
+    "project_id": "eoc-app",
+    "storage_bucket": "eoc-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337257128249:android:ea9ee68e7fdab424",
+        "android_client_info": {
+          "package_name": "seow.evolution.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "337257128249-s0jidt148q1ab2jhv6ui2710qaeh9mf1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAO1N7ADZ6x9GuLEskEFYHMO7KwTfeg84"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
