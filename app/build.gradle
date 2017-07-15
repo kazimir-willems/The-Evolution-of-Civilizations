@@ -33,7 +33,6 @@ dependencies {
     compile 'com.google.android.gms:play-services:10.2.0'
     compile 'com.google.firebase:firebase-messaging:10.2.0'
     compile 'com.android.support:multidex:1.0.1'
-    compile 'com.anjlab.android.iab.v3:library:1.0.+'
     testCompile 'junit:junit:4.12'
     compile files('libs/butterknife-7.0.1.jar')
 }

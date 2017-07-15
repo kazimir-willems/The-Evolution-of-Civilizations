@@ -3,6 +3,7 @@ package seow.evolution.com.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +44,8 @@ public class ContentFragment extends Fragment {
 
         if(strContent.startsWith("Text")) {
             strContent = strContent.substring(4);
-            tvContent.setText(strContent);
+            tvContent.setText(Html.fromHtml(strContent));
+//            tvContent.setText(strContent);
             ivImage.setVisibility(View.GONE);
             textScroll.setVisibility(View.VISIBLE);
         } else if(strContent.startsWith("Image")) {
