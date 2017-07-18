@@ -13,6 +13,7 @@ public class SharedPrefManager {
     private static final String TAG_TITLE = "title";
     private static final String TAG_ADMOB_SWITCH = "admob_switch";
     private static final String TAG_INTERESTIAL_SWITCH = "interestial_switch";
+    private static final String TAG_PURCHASED = "purchased";
 
     private static SharedPrefManager mInstance;
     private static Context mCtx;
@@ -130,5 +131,18 @@ public class SharedPrefManager {
     public boolean getGoogleInterestial(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return  sharedPreferences.getBoolean(TAG_INTERESTIAL_SWITCH, true);
+    }
+
+    public boolean savePurchased(boolean value){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(TAG_PURCHASED, value);
+        editor.apply();
+        return true;
+    }
+
+    public boolean getPurchased(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return  sharedPreferences.getBoolean(TAG_PURCHASED, false);
     }
 }

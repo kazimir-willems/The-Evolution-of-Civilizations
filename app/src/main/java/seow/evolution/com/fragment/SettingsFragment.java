@@ -43,8 +43,13 @@ public class SettingsFragment extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(!b) {
                     //In-app Purchase
-                    mHelper.launchPurchaseFlow(getActivity(), "com.jnspl.eoc.productid", 10001,
-                            mPurchaseFinishedListener, "mypurchasetoken");
+                    if(!SharedPrefManager.getInstance(getActivity()).getPurchased()) {
+                        mHelper.launchPurchaseFlow(getActivity(), "com.jnspl.eoc.productid", 10001,
+                                mPurchaseFinishedListener, "mypurchasetoken");
+                    } else {
+                        SharedPrefManager.getInstance(getActivity()).saveGoogleAds(b);
+                        SharedPrefManager.getInstance(getActivity()).saveGoogleInterestial(b);
+                    }
                 } else {
 
 
@@ -139,6 +144,9 @@ public class SettingsFragment extends Fragment {
                                               IabResult result) {
 
                     if (result.isSuccess()) {
+                        SharedPrefManager.getInstance(getActivity()).saveGoogleAds(false);
+                        SharedPrefManager.getInstance(getActivity()).saveGoogleInterestial(false);
+                        SharedPrefManager.getInstance(getActivity()).savePurchased(true);
                     } else {
                         // handle error
                     }
